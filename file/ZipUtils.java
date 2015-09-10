@@ -1,4 +1,4 @@
-package com.mwstys.graphtask.repositories.file;
+package file;
 
 import com.rafalzajfert.androidlogger.Logger;
 

@@ -1,4 +1,4 @@
-package com.mwstys.graphtask.repositories.file.exceptions;
+package file.exceptions;
 
 /**
  * Created by Mikołaj Styś on 2015-09-01.
