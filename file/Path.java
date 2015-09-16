@@ -5,13 +5,12 @@ import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.mwstys.graphtask.repositories.file.exceptions.DirectoryExistPathException;
-import com.mwstys.graphtask.repositories.file.exceptions.FileExistPathException;
-import com.mwstys.graphtask.repositories.file.exceptions.FileNotExistPathException;
-import com.mwstys.graphtask.repositories.file.exceptions.NotDirectoryPathException;
-import com.mwstys.graphtask.repositories.file.exceptions.ReadPathException;
-import com.mwstys.graphtask.repositories.file.exceptions.WritePathException;
-import com.mwstys.graphtask.utils.annotation.AppContext;
+import file.exceptions.DirectoryExistPathException;
+import file.exceptions.FileExistPathException;
+import file.exceptions.FileNotExistPathException;
+import file.exceptions.NotDirectoryPathException;
+import file.exceptions.ReadPathException;
+import file.exceptions.WritePathException;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -103,7 +102,7 @@ public class Path {
      *
      * @throws ReadPathException if cannot be read
      */
-    public static String getAppFilesSdDir(@AppContext Context context) {
+    public static String getAppFilesSdDir(Context context) {
         File dir = context.getExternalFilesDir(null);
         if (dir == null) {
             throw new ReadPathException("Cannot read ExternalFilesDir!");
@@ -116,7 +115,7 @@ public class Path {
      *
      * @throws ReadPathException if cannot be read
      */
-    public static String getCacheDir(@AppContext Context context) {
+    public static String getCacheDir(Context context) {
         File dir = context.getExternalCacheDir();
         if (dir == null) {
             throw new ReadPathException("Cannot read CacheDir!");

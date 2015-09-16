@@ -1,7 +1,5 @@
 package file;
 
-import com.rafalzajfert.androidlogger.Logger;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
@@ -26,7 +24,7 @@ public class ZipUtils {
             byte data[] = new byte[BUFFER_SIZE];
             for (String sourceFilePath : sourceFilePaths) {
                 Path sourcePath = new Path(sourceFilePath);
-                Logger.verbose("Compress", "Adding: " + sourcePath);
+                Log.v("ZipUtils", "Adding: " + sourcePath);
                 BufferedInputStream origin =
                         new BufferedInputStream(sourcePath.getInputStream(), BUFFER_SIZE);
                 ZipEntry entry = new ZipEntry(sourceFilePath
@@ -40,7 +38,7 @@ public class ZipUtils {
             }
             out.close();
         } catch (Exception e) {
-            Logger.warning(e.getMessage());
+            Log.w("ZipUtils", e.getMessage());
             result = false;
         }
         return result;
@@ -69,7 +67,7 @@ public class ZipUtils {
             zis.closeEntry();
             zis.close();
         } catch (Exception e) {
-            Logger.warning(e.getMessage());
+            Log.w("ZipUtils", e.getMessage());
             result = false;
         }
         return result;
